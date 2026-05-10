@@ -1,24 +1,13 @@
 #include <iostream>
-using namespace std;
+#include "../include/LinkedList.hpp"
 
-class Node
+LinkedList::Node::Node(int data)
 {
-public:
-    int data;
-    Node *next;
+    this->data = data;
+    this->next = nullptr;
+}
 
-    Node(int data)
-    {
-        this->data = data;
-        this->next = NULL;
-    }
-};
-
-int
-main()
-{
-    Node *head = new Node(1);
-    head->next = new Node(2);
-
-    return 0;
+LinkedList::LinkedList(){
+    this->head = nullptr;
+    this->nodeCount = 0;
 }
