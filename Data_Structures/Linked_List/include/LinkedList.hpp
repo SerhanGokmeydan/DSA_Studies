@@ -13,6 +13,7 @@ public:
     Node *head;
     int getNodeCount();
     void printLinkedList();
+    bool searchNode(int data);
 
     LinkedList();
 };
