@@ -129,10 +129,15 @@ void LinkedList::insertAtPoint(int pos, int data)
 void LinkedList::insertEnd(int data){
     Node *currentNode = this->head;
 
+    if(this->head == nullptr){
+        this->insertBeginnig(data);
+        return;
+    }
+
     while(currentNode->next != nullptr){
         currentNode = currentNode->next;
     }
 
     Node *newNode = new Node(data);
-    (this->head == nullptr ? this->head : currentNode->next) = newNode;
+    currentNode->next = newNode;
 }
