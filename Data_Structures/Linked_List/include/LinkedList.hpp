@@ -2,7 +2,7 @@
 
 class LinkedList
 {
-public:
+private:
     struct Node
     {
         int data;
@@ -11,6 +11,8 @@ public:
     };
 
     Node *head;
+
+public:
     int getNodeCount();
     void printLinkedList();
     bool searchNode(int key);

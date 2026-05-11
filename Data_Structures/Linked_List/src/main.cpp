@@ -5,9 +5,9 @@ int main()
 {
     LinkedList *linkedList = new LinkedList();
 
-    linkedList->head = new LinkedList::Node(10);
-    linkedList->head->next = new LinkedList::Node(20);
-    linkedList->head->next->next = new LinkedList::Node(30);
+    linkedList->insertEnd(10);
+    linkedList->insertEnd(20);
+    linkedList->insertEnd(30);
 
     std::cout << "List length is " << linkedList->getNodeCount() << std::endl;
     linkedList->printLinkedList();
