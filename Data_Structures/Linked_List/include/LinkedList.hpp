@@ -22,4 +22,5 @@ public:
     void insertEnd(int data);
 
     LinkedList();
+    ~LinkedList();
 };

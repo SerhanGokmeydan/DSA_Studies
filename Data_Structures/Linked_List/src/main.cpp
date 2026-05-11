@@ -9,7 +9,7 @@ int main()
     linkedList->head->next = new LinkedList::Node(20);
     linkedList->head->next->next = new LinkedList::Node(30);
 
-    std::cout << "List length is "<< linkedList->getNodeCount() << std::endl;
+    std::cout << "List length is " << linkedList->getNodeCount() << std::endl;
     linkedList->printLinkedList();
 
     if (linkedList->searchNode(2))
@@ -37,7 +37,7 @@ int main()
 
     std::cout << "-------------" << std::endl;
 
-    linkedList->insertAfterNode(10,5);
+    linkedList->insertAfterNode(10, 5);
     linkedList->printLinkedList();
 
     std::cout << "-------------" << std::endl;
@@ -54,4 +54,6 @@ int main()
 
     linkedList->insertEnd(60);
     linkedList->printLinkedList();
+
+    delete linkedList;
 }

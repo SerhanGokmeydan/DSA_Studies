@@ -12,6 +12,19 @@ LinkedList::LinkedList()
     this->head = nullptr;
 }
 
+LinkedList::~LinkedList()
+{
+    Node *currentNode = this->head;
+    Node *nextNode = nullptr;
+
+    while (currentNode != nullptr)
+    {
+        nextNode = currentNode->next;
+        delete currentNode;
+        currentNode = nextNode;
+    }
+}
+
 int LinkedList::getNodeCount()
 {
     Node *currentNode = this->head;
@@ -126,15 +139,18 @@ void LinkedList::insertAtPoint(int pos, int data)
     (pos == 1 ? this->head : currentNode->next) = newNode;
 }
 
-void LinkedList::insertEnd(int data){
+void LinkedList::insertEnd(int data)
+{
     Node *currentNode = this->head;
 
-    if(this->head == nullptr){
+    if (this->head == nullptr)
+    {
         this->insertBeginnig(data);
         return;
     }
 
-    while(currentNode->next != nullptr){
+    while (currentNode->next != nullptr)
+    {
         currentNode = currentNode->next;
     }
 
