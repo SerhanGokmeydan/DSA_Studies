@@ -13,7 +13,13 @@ public:
     Node *head;
     int getNodeCount();
     void printLinkedList();
-    bool searchNode(int data);
+    bool searchNode(int key);
+
+    void insertBeginnig(int data);
+    void insertAfterNode(int key, int data);
+    void insertBeforeNode(int key, int data);
+    void insertAtPoint(int pos, int data);
+    void insertEnd(int data);
 
     LinkedList();
 };
