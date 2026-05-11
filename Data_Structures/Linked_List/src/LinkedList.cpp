@@ -9,5 +9,16 @@ LinkedList::Node::Node(int data)
 
 LinkedList::LinkedList(){
     this->head = nullptr;
-    this->nodeCount = 0;
+}
+
+int LinkedList::getNodeCount(){
+    Node* currentNode = this->head;
+    int nodeCount = 0;
+
+    while(currentNode != nullptr){
+        nodeCount++;
+        currentNode = currentNode->next;
+    }
+
+    return nodeCount;
 }

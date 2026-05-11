@@ -2,7 +2,7 @@
 
 class LinkedList
 {
-private:
+public:
     struct Node
     {
         int data;
@@ -11,8 +11,7 @@ private:
     };
 
     Node *head;
+    int getNodeCount();
 
-public:
-    int nodeCount;
     LinkedList();
 };

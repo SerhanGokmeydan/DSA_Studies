@@ -9,5 +9,5 @@ add_executable(Linked_List_App ${SOURCES})
 
 # Çıktıyı ana build klasörünün altındaki Linked_List klasörüne koy
 set_target_properties(Linked_List_App PROPERTIES 
-    OUTPUT_NAME "GetLength"
+    OUTPUT_NAME "main"
     RUNTIME_OUTPUT_DIRECTORY "${CMAKE_BINARY_DIR}/Linked_List")
