@@ -12,6 +12,7 @@ public:
 
     Node *head;
     int getNodeCount();
+    void printLinkedList();
 
     LinkedList();
 };

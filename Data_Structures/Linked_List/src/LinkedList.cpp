@@ -22,3 +22,12 @@ int LinkedList::getNodeCount(){
 
     return nodeCount;
 }
+
+void LinkedList::printLinkedList(){
+    Node* currentNode = this->head;
+
+    while(currentNode != nullptr){
+        std::cout << currentNode->data << " -> ";
+        currentNode = currentNode->next;
+    }
+}
