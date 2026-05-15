@@ -55,5 +55,10 @@ int main()
     linkedList->insertEnd(60);
     linkedList->printLinkedList();
 
+    std::cout << "-------------" << std::endl;
+
+    linkedList->deleteBeginning();
+    linkedList->printLinkedList();
+
     delete linkedList;
 }

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "../include/LinkedList.hpp"
 
+// linked list's constructure, deconstructure 
+
 LinkedList::Node::Node(int data)
 {
     this->data = data;
@@ -25,6 +27,8 @@ LinkedList::~LinkedList()
     }
 }
 
+// list size
+
 int LinkedList::getNodeCount()
 {
     Node *currentNode = this->head;
@@ -39,6 +43,8 @@ int LinkedList::getNodeCount()
     return nodeCount;
 }
 
+// list printing
+
 void LinkedList::printLinkedList()
 {
     Node *currentNode = this->head;
@@ -51,6 +57,8 @@ void LinkedList::printLinkedList()
 
     std::cout << std::endl;
 }
+
+// list searching
 
 bool LinkedList::searchNode(int key)
 {
@@ -67,6 +75,8 @@ bool LinkedList::searchNode(int key)
 
     return false;
 }
+
+// insertion methods
 
 void LinkedList::insertBeginnig(int data)
 {
@@ -156,4 +166,13 @@ void LinkedList::insertEnd(int data)
 
     Node *newNode = new Node(data);
     currentNode->next = newNode;
+}
+
+// deletion methods
+
+void LinkedList::deleteBeginning(){
+    Node *currentNode = this->head;
+    this->head = this->head->next;
+
+    delete currentNode;
 }

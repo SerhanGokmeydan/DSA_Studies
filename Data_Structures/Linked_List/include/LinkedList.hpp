@@ -23,6 +23,8 @@ public:
     void insertAtPoint(int pos, int data);
     void insertEnd(int data);
 
+    void deleteBeginning();
+
     LinkedList();
     ~LinkedList();
 };
