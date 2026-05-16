@@ -70,5 +70,10 @@ int main()
     linkedList->deleteBeforeNode(30);
     linkedList->printLinkedList();
 
+    std::cout << "-------------" << std::endl;
+
+    linkedList->deleteAtPoint(6);
+    linkedList->printLinkedList();
+    
     delete linkedList;
 }

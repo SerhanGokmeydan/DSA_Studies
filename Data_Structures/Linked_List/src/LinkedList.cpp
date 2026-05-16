@@ -126,18 +126,20 @@ void LinkedList::insertBeforeNode(int key, int data)
 void LinkedList::insertAtPoint(int pos, int data)
 {
     Node *currentNode = this->head;
-
-    for (int i = 0; i < pos - 1; i++)
+    if (pos < 1)
     {
-        currentNode = currentNode->next;
-    }
-
-    if (currentNode == nullptr || pos < 1)
-    {
-        std::cout << "Position is not valid" << std::endl;
+        std::cout << "Invalid position" << std::endl;
         return;
     }
-
+    for (int i = 0; i < pos - 1; i++)
+    {
+        if (currentNode == nullptr)
+        {
+            std::cout << "Invalid position" << std::endl;
+            return;
+        }
+        currentNode = currentNode->next;
+    }
     Node *newNode = new Node(data);
     newNode->next = (pos == 1) ? this->head : currentNode->next;
     (pos == 1 ? this->head : currentNode->next) = newNode;
@@ -146,18 +148,15 @@ void LinkedList::insertAtPoint(int pos, int data)
 void LinkedList::insertEnd(int data)
 {
     Node *currentNode = this->head;
-
     if (this->head == nullptr)
     {
         this->insertBeginnig(data);
         return;
     }
-
     while (currentNode->next != nullptr)
     {
         currentNode = currentNode->next;
     }
-
     Node *newNode = new Node(data);
     currentNode->next = newNode;
 }
@@ -168,7 +167,6 @@ void LinkedList::deleteBeginning()
 {
     Node *tempNode = this->head;
     this->head = this->head->next;
-
     delete tempNode;
 }
 
@@ -223,4 +221,31 @@ void LinkedList::deleteBeforeNode(int key)
         currentNode = currentNode->next;
     }
     std::cout << "Node is not found" << std::endl;
+}
+
+void LinkedList::deleteAtPoint(int pos)
+{
+    Node *currentNode = this->head;
+    if (pos == 1)
+    {
+        this->deleteBeginning();
+        return;
+    }
+    for (int i = 0; i < pos - 2; i++)
+    {
+        if (currentNode == nullptr)
+        {
+            std::cout << "Invalid position" << std::endl;
+            return;
+        }
+        currentNode = currentNode->next;
+    }
+    if (currentNode->next == nullptr || pos < 1)
+    {
+        std::cout << "Invalid position" << std::endl;
+        return;
+    }
+    Node *tempNode = currentNode->next;
+    currentNode->next = currentNode->next->next;
+    delete tempNode;
 }
