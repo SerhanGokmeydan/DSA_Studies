@@ -181,11 +181,45 @@ void LinkedList::deleteAfterNode(int key)
         {
             Node *tempNode = currentNode->next;
             if (currentNode->next == nullptr)
+            {
+                std::cout << "There is no node after given key" << std::endl;
                 return;
+            }
             currentNode->next = currentNode->next->next;
             delete tempNode;
             return;
         }
+        currentNode = currentNode->next;
+    }
+    std::cout << "Node is not found" << std::endl;
+}
+
+void LinkedList::deleteBeforeNode(int key)
+{
+    Node *currentNode = this->head;
+    Node *firstPrevNode = nullptr;
+    Node *secondPrevNode = nullptr;
+    while (currentNode != nullptr)
+    {
+        if (currentNode->data == key)
+        {
+            Node *tempNode = firstPrevNode;
+            if (currentNode == this->head)
+            {
+                std::cout << "There is no node before given key" << std::endl;
+                return;
+            }
+            if (currentNode == this->head->next)
+            {
+                this->deleteBeginning();
+                return;
+            }
+            secondPrevNode->next = currentNode;
+            delete tempNode;
+            return;
+        }
+        secondPrevNode = firstPrevNode;
+        firstPrevNode = currentNode;
         currentNode = currentNode->next;
     }
     std::cout << "Node is not found" << std::endl;

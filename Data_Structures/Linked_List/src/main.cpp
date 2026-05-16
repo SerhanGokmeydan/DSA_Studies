@@ -67,8 +67,8 @@ int main()
 
     std::cout << "-------------" << std::endl;
 
-    // linkedList->deleteBeforeNode(10);
-    // linkedList->printLinkedList();
+    linkedList->deleteBeforeNode(30);
+    linkedList->printLinkedList();
 
     delete linkedList;
 }
