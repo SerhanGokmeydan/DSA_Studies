@@ -240,7 +240,7 @@ void LinkedList::deleteAtPoint(int pos)
         }
         currentNode = currentNode->next;
     }
-    if (currentNode->next == nullptr || pos < 1)
+    if (currentNode == nullptr || currentNode->next == nullptr || pos < 1)
     {
         std::cout << "Invalid position" << std::endl;
         return;

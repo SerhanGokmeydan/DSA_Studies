@@ -72,7 +72,7 @@ int main()
 
     std::cout << "-------------" << std::endl;
 
-    linkedList->deleteAtPoint(6);
+    linkedList->deleteAtPoint(3);
     linkedList->printLinkedList();
     
     delete linkedList;
