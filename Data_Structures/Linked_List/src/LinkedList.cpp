@@ -166,6 +166,11 @@ void LinkedList::insertEnd(int data)
 void LinkedList::deleteBeginning()
 {
     Node *tempNode = this->head;
+    if (this->head == nullptr)
+    {
+        std::cout << "list is empty" << std::endl;
+        return;
+    }
     this->head = this->head->next;
     delete tempNode;
 }
@@ -173,6 +178,11 @@ void LinkedList::deleteBeginning()
 void LinkedList::deleteAfterNode(int key)
 {
     Node *currentNode = this->head;
+    if (this->head == nullptr)
+    {
+        std::cout << "list is empty" << std::endl;
+        return;
+    }
     while (currentNode != nullptr)
     {
         if (currentNode->data == key)
@@ -197,6 +207,11 @@ void LinkedList::deleteBeforeNode(int key)
     Node *currentNode = this->head;
     Node *firstPrevNode = nullptr;
     Node *secondPrevNode = nullptr;
+    if (this->head == nullptr)
+    {
+        std::cout << "list is empty" << std::endl;
+        return;
+    }
     while (currentNode != nullptr)
     {
         if (currentNode->data == key)
@@ -226,6 +241,15 @@ void LinkedList::deleteBeforeNode(int key)
 void LinkedList::deleteAtPoint(int pos)
 {
     Node *currentNode = this->head;
+    if (this->head == nullptr)
+    {
+        std::cout << "List is empty" << std::endl;
+        return;
+    }
+    if(pos < 1){
+        std::cout << "Invalid position" << std::endl;
+        return;
+    }
     if (pos == 1)
     {
         this->deleteBeginning();
@@ -240,12 +264,35 @@ void LinkedList::deleteAtPoint(int pos)
         }
         currentNode = currentNode->next;
     }
-    if (currentNode == nullptr || currentNode->next == nullptr || pos < 1)
+    if (currentNode == nullptr || currentNode->next == nullptr)
     {
         std::cout << "Invalid position" << std::endl;
         return;
     }
     Node *tempNode = currentNode->next;
     currentNode->next = currentNode->next->next;
+    delete tempNode;
+}
+
+void LinkedList::deleteEnd()
+{
+    Node *currentNode = this->head;
+    if (this->head == nullptr)
+    {
+        std::cout << "List is empty" << std::endl;
+        return;
+    }
+    if (this->head->next == nullptr)
+    {
+        delete this->head;
+        this->head = nullptr;
+        return;
+    }
+    while (currentNode->next->next != nullptr)
+    {
+        currentNode = currentNode->next;
+    }
+    Node *tempNode = currentNode->next;
+    currentNode->next = nullptr;
     delete tempNode;
 }

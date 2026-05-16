@@ -75,5 +75,10 @@ int main()
     linkedList->deleteAtPoint(3);
     linkedList->printLinkedList();
     
+    std::cout << "-------------" << std::endl;
+
+    linkedList->deleteEnd();
+    linkedList->printLinkedList();
+    
     delete linkedList;
 }
