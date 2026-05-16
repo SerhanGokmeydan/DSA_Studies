@@ -96,14 +96,11 @@ void LinkedList::insertAfterNode(int key, int data)
             Node *newNode = new Node(data);
             newNode->next = currentNode->next;
             currentNode->next = newNode;
-            break;
+            return;
         }
         currentNode = currentNode->next;
     }
-    if (currentNode == nullptr)
-    {
-        std::cout << "Node is not found" << std::endl;
-    }
+    std::cout << "Node is not found" << std::endl;
 }
 
 void LinkedList::insertBeforeNode(int key, int data)
@@ -118,15 +115,12 @@ void LinkedList::insertBeforeNode(int key, int data)
             Node *newNode = new Node(data);
             newNode->next = currentNode;
             (prevNode == nullptr ? this->head : prevNode->next) = newNode;
-            break;
+            return;
         }
         prevNode = currentNode;
         currentNode = currentNode->next;
     }
-    if (currentNode == nullptr)
-    {
-        std::cout << "Node is not found" << std::endl;
-    }
+    std::cout << "Node is not found" << std::endl;
 }
 
 void LinkedList::insertAtPoint(int pos, int data)
