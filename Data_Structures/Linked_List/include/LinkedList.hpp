@@ -24,6 +24,10 @@ public:
     void insertEnd(int data);
 
     void deleteBeginning();
+    void deleteAfterNode(int key);
+    void deleteBeforeNode(int key);
+    void deleteAtPoint(int pos);
+    void deleteEnd();
 
     LinkedList();
     ~LinkedList();

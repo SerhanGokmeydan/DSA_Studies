@@ -1,7 +1,7 @@
 #include <iostream>
 #include "../include/LinkedList.hpp"
 
-// linked list's constructure, deconstructure 
+// linked list's constructure, deconstructure
 
 LinkedList::Node::Node(int data)
 {
@@ -170,9 +170,29 @@ void LinkedList::insertEnd(int data)
 
 // deletion methods
 
-void LinkedList::deleteBeginning(){
-    Node *currentNode = this->head;
+void LinkedList::deleteBeginning()
+{
+    Node *tempNode = this->head;
     this->head = this->head->next;
 
-    delete currentNode;
+    delete tempNode;
+}
+
+void LinkedList::deleteAfterNode(int key)
+{
+    Node *currentNode = this->head;
+    while (currentNode != nullptr)
+    {
+        if (currentNode->data == key)
+        {
+            Node *tempNode = currentNode->next;
+            if (currentNode->next == nullptr)
+                return;
+            currentNode->next = currentNode->next->next;
+            delete tempNode;
+            return;
+        }
+        currentNode = currentNode->next;
+    }
+    std::cout << "Node is not found" << std::endl;
 }

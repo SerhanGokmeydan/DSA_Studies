@@ -60,5 +60,15 @@ int main()
     linkedList->deleteBeginning();
     linkedList->printLinkedList();
 
+    std::cout << "-------------" << std::endl;
+
+    linkedList->deleteAfterNode(10);
+    linkedList->printLinkedList();
+
+    std::cout << "-------------" << std::endl;
+
+    // linkedList->deleteBeforeNode(10);
+    // linkedList->printLinkedList();
+
     delete linkedList;
 }
