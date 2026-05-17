@@ -187,12 +187,12 @@ void LinkedList::deleteAfterNode(int key)
     {
         if (currentNode->data == key)
         {
-            Node *tempNode = currentNode->next;
             if (currentNode->next == nullptr)
             {
                 std::cout << "There is no node after given key" << std::endl;
                 return;
             }
+            Node *tempNode = currentNode->next;
             currentNode->next = currentNode->next->next;
             delete tempNode;
             return;
