@@ -125,12 +125,12 @@ void LinkedList::insertBeforeNode(int key, int data)
 
 void LinkedList::insertAtPoint(int pos, int data)
 {
-    Node *currentNode = this->head;
     if (pos < 1)
     {
         std::cout << "Invalid position" << std::endl;
         return;
     }
+    Node *currentNode = this->head;
     for (int i = 0; i < pos - 1; i++)
     {
         if (currentNode == nullptr)
@@ -147,12 +147,12 @@ void LinkedList::insertAtPoint(int pos, int data)
 
 void LinkedList::insertEnd(int data)
 {
-    Node *currentNode = this->head;
     if (this->head == nullptr)
     {
         this->insertBeginnig(data);
         return;
     }
+    Node *currentNode = this->head;
     while (currentNode->next != nullptr)
     {
         currentNode = currentNode->next;
@@ -165,24 +165,24 @@ void LinkedList::insertEnd(int data)
 
 void LinkedList::deleteBeginning()
 {
-    Node *tempNode = this->head;
     if (this->head == nullptr)
     {
         std::cout << "list is empty" << std::endl;
         return;
     }
+    Node *tempNode = this->head;
     this->head = this->head->next;
     delete tempNode;
 }
 
 void LinkedList::deleteAfterNode(int key)
 {
-    Node *currentNode = this->head;
     if (this->head == nullptr)
     {
         std::cout << "list is empty" << std::endl;
         return;
     }
+    Node *currentNode = this->head;
     while (currentNode != nullptr)
     {
         if (currentNode->data == key)
@@ -204,14 +204,14 @@ void LinkedList::deleteAfterNode(int key)
 
 void LinkedList::deleteBeforeNode(int key)
 {
-    Node *currentNode = this->head;
-    Node *firstPrevNode = nullptr;
-    Node *secondPrevNode = nullptr;
     if (this->head == nullptr)
     {
         std::cout << "list is empty" << std::endl;
         return;
     }
+    Node *currentNode = this->head;
+    Node *firstPrevNode = nullptr;
+    Node *secondPrevNode = nullptr;
     while (currentNode != nullptr)
     {
         if (currentNode->data == key)
@@ -240,13 +240,13 @@ void LinkedList::deleteBeforeNode(int key)
 
 void LinkedList::deleteAtPoint(int pos)
 {
-    Node *currentNode = this->head;
     if (this->head == nullptr)
     {
         std::cout << "List is empty" << std::endl;
         return;
     }
-    if(pos < 1){
+    if (pos < 1)
+    {
         std::cout << "Invalid position" << std::endl;
         return;
     }
@@ -255,6 +255,7 @@ void LinkedList::deleteAtPoint(int pos)
         this->deleteBeginning();
         return;
     }
+    Node *currentNode = this->head;
     for (int i = 0; i < pos - 2; i++)
     {
         if (currentNode == nullptr)
@@ -276,12 +277,12 @@ void LinkedList::deleteAtPoint(int pos)
 
 void LinkedList::deleteEnd()
 {
-    Node *currentNode = this->head;
     if (this->head == nullptr)
     {
         std::cout << "List is empty" << std::endl;
         return;
     }
+    Node *currentNode = this->head;
     if (this->head->next == nullptr)
     {
         delete this->head;
