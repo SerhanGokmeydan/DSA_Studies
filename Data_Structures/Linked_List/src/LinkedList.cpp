@@ -183,15 +183,13 @@ void LinkedList::insertBeforeNode(int key, int data)
 
 void LinkedList::insertAtPoint(int pos, int data)
 {
-    if (this->emptyListCheck())
-        return;
     if (pos < 1)
     {
         std::cout << "Invalid position" << std::endl;
         return;
     }
     Node *currentNode = this->head;
-    for (int i = 0; i < pos - 1; i++)
+    for (int i = 0; i < pos - 2; i++)
     {
         if (currentNode == nullptr)
         {
