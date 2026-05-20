@@ -13,9 +13,13 @@ private:
     Node *head;
 
 public:
+    bool emptyListCheck();
     int getNodeCount();
     void printLinkedList();
+
     bool searchNode(int key);
+    void getNthFromBeginning(int pos);
+    void getNthFromEnd(int pos);
 
     void insertBeginnig(int data);
     void insertAfterNode(int key, int data);

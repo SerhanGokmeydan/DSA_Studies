@@ -30,6 +30,9 @@ int main()
         std::cout << "List does not include node with data 10" << std::endl;
     }
 
+    linkedList->getNthFromBeginning(1);
+    linkedList->getNthFromEnd(2);
+
     std::cout << "-------------" << std::endl;
 
     linkedList->insertBeginnig(4);
