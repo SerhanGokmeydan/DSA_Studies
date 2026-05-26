@@ -1,19 +1,19 @@
 #pragma once
 
-class Stack
+class StackArray
 {
 private:
     int *arr;
-    int size;
+    int capacity;
     int top;
 
 public:
-    void push();
+    void push(int data);
     void pop();
-    int seek();
+    int peek();
     bool isEmpty();
     int size();
 
-    Stack(int size);
-    ~Stack();
+    StackArray(int size);
+    ~StackArray();
 };
