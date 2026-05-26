@@ -27,7 +27,7 @@ LinkedList::~LinkedList()
 }
 
 // check whether list is empty
-bool LinkedList::emptyListCheck()
+bool LinkedList::isEmpty()
 {
     if (this->head == nullptr)
     {
@@ -55,7 +55,7 @@ int LinkedList::getNodeCount()
 
 void LinkedList::printLinkedList()
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     Node *currentNode = this->head;
     while (currentNode != nullptr)
@@ -84,7 +84,7 @@ bool LinkedList::searchNode(int key)
 
 void LinkedList::getNthFromBeginning(int pos)
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     if (pos < 1)
     {
@@ -106,7 +106,7 @@ void LinkedList::getNthFromBeginning(int pos)
 
 void LinkedList::getNthFromEnd(int pos)
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     if (pos < 1)
     {
@@ -143,7 +143,7 @@ void LinkedList::insertBeginnig(int data)
 
 void LinkedList::insertAfterNode(int key, int data)
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     Node *currentNode = this->head;
     while (currentNode != nullptr)
@@ -162,7 +162,7 @@ void LinkedList::insertAfterNode(int key, int data)
 
 void LinkedList::insertBeforeNode(int key, int data)
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     Node *currentNode = this->head;
     Node *prevNode = nullptr;
@@ -223,7 +223,7 @@ void LinkedList::insertEnd(int data)
 
 void LinkedList::deleteBeginning()
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     Node *tempNode = this->head;
     this->head = this->head->next;
@@ -232,7 +232,7 @@ void LinkedList::deleteBeginning()
 
 void LinkedList::deleteAfterNode(int key)
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     Node *currentNode = this->head;
     while (currentNode != nullptr)
@@ -256,7 +256,7 @@ void LinkedList::deleteAfterNode(int key)
 
 void LinkedList::deleteBeforeNode(int key)
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     Node *currentNode = this->head;
     Node *firstPrevNode = nullptr;
@@ -289,7 +289,7 @@ void LinkedList::deleteBeforeNode(int key)
 
 void LinkedList::deleteAtPoint(int pos)
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     if (pos < 1)
     {
@@ -323,7 +323,7 @@ void LinkedList::deleteAtPoint(int pos)
 
 void LinkedList::deleteEnd()
 {
-    if (this->emptyListCheck())
+    if (this->isEmpty())
         return;
     Node *currentNode = this->head;
     if (this->head->next == nullptr)

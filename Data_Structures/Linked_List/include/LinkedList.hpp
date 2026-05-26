@@ -13,7 +13,7 @@ private:
     Node *head;
 
 public:
-    bool emptyListCheck();
+    bool isEmpty();
     int getNodeCount();
     void printLinkedList();
 
