@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/LinkedList.hpp"
+#include "LinkedList.hpp"
 
 // linked list's constructure, deconstructure
 

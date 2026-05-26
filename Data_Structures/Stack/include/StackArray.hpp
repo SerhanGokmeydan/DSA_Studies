@@ -12,7 +12,9 @@ public:
     void pop();
     int peek();
     bool isEmpty();
+    bool isFull();
     int size();
+    void print();
 
     StackArray(int size);
     ~StackArray();
