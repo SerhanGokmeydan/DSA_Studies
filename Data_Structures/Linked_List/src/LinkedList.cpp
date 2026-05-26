@@ -12,6 +12,7 @@ LinkedList::Node::Node(int data)
 LinkedList::LinkedList()
 {
     this->head = nullptr;
+    this->count = 0;
 }
 
 LinkedList::~LinkedList()
@@ -41,14 +42,7 @@ bool LinkedList::isEmpty()
 
 int LinkedList::getNodeCount()
 {
-    Node *currentNode = this->head;
-    int nodeCount = 0;
-    while (currentNode != nullptr)
-    {
-        nodeCount++;
-        currentNode = currentNode->next;
-    }
-    return nodeCount;
+    return this->count;
 }
 
 // list printing
@@ -139,6 +133,7 @@ void LinkedList::insertBeginnig(int data)
     Node *newNode = new Node(data);
     newNode->next = this->head;
     this->head = newNode;
+    this->count++;
 }
 
 void LinkedList::insertAfterNode(int key, int data)
@@ -153,6 +148,7 @@ void LinkedList::insertAfterNode(int key, int data)
             Node *newNode = new Node(data);
             newNode->next = currentNode->next;
             currentNode->next = newNode;
+            this->count++;
             return;
         }
         currentNode = currentNode->next;
@@ -173,6 +169,7 @@ void LinkedList::insertBeforeNode(int key, int data)
             Node *newNode = new Node(data);
             newNode->next = currentNode;
             (prevNode == nullptr ? this->head : prevNode->next) = newNode;
+            this->count++;
             return;
         }
         prevNode = currentNode;
@@ -201,6 +198,7 @@ void LinkedList::insertAtPoint(int pos, int data)
     Node *newNode = new Node(data);
     newNode->next = (pos == 1) ? this->head : currentNode->next;
     (pos == 1 ? this->head : currentNode->next) = newNode;
+    this->count++;
 }
 
 void LinkedList::insertEnd(int data)
@@ -217,6 +215,7 @@ void LinkedList::insertEnd(int data)
     }
     Node *newNode = new Node(data);
     currentNode->next = newNode;
+    this->count++;
 }
 
 // deletion methods
@@ -227,6 +226,7 @@ void LinkedList::deleteBeginning()
         return;
     Node *tempNode = this->head;
     this->head = this->head->next;
+    this->count--;
     delete tempNode;
 }
 
@@ -246,6 +246,7 @@ void LinkedList::deleteAfterNode(int key)
             }
             Node *tempNode = currentNode->next;
             currentNode->next = currentNode->next->next;
+            this->count--;
             delete tempNode;
             return;
         }
@@ -277,6 +278,7 @@ void LinkedList::deleteBeforeNode(int key)
                 return;
             }
             secondPrevNode->next = currentNode;
+            this->count--;
             delete tempNode;
             return;
         }
@@ -318,6 +320,7 @@ void LinkedList::deleteAtPoint(int pos)
     }
     Node *tempNode = currentNode->next;
     currentNode->next = currentNode->next->next;
+    this->count--;
     delete tempNode;
 }
 
@@ -338,5 +341,6 @@ void LinkedList::deleteEnd()
     }
     Node *tempNode = currentNode->next;
     currentNode->next = nullptr;
+    this->count--;
     delete tempNode;
 }

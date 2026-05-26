@@ -61,7 +61,7 @@ int StackArray::size()
 void StackArray::print(){
     for (int i = 0; i <= this->top; ++i)
     {
-        std::cout << this->arr[i] << " <- ";
+        std::cout << this->arr[i] << " -> ";
     }
     std::cout << std::endl;
 }
