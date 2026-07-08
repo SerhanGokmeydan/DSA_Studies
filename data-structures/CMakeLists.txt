@@ -7,6 +7,7 @@ set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 file(GLOB ALL_ITEMS RELATIVE ${CMAKE_CURRENT_SOURCE_DIR} "${CMAKE_CURRENT_SOURCE_DIR}/*")
 
-add_subdirectory(Array)
-add_subdirectory(Linked_List)
-add_subdirectory(Stack)
+add_subdirectory(array)
+add_subdirectory(linked-list)
+add_subdirectory(stack)
+add_subdirectory(queue)
