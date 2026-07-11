@@ -12,17 +12,14 @@ int main()
     queueArray->enqueue(30);
     queueArray->enqueue(40);
     queueArray->enqueue(50);
-
-    // queueArray->dequeue();
-    // queueArray->dequeue();
-    // queueArray->dequeue();
-
-    // queueArray->enqueue(60);
-    // queueArray->enqueue(70);
-    // queueArray->enqueue(80);
-    // queueArray->enqueue(90);
-
     queueArray->print();
+
+    std::cout << "front: " << queueArray->peekFront() << " rear: " << queueArray->peekRear() << std::endl;
+
+    queueArray->dequeue();
+    queueArray->print();
+
+    std::cout << "front: " << queueArray->peekFront() << " rear: " << queueArray->peekRear() << std::endl;
 
     std::cout << "Queue size is " << queueArray->size() << std::endl;
 }
