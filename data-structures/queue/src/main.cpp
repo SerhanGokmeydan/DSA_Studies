@@ -13,13 +13,16 @@ int main()
     queueArray->enqueue(40);
     queueArray->enqueue(50);
 
-    queueArray->print();
+    // queueArray->dequeue();
+    // queueArray->dequeue();
+    // queueArray->dequeue();
 
-    queueArray->dequeue();
-    
-    queueArray->print();
     // queueArray->enqueue(60);
+    // queueArray->enqueue(70);
+    // queueArray->enqueue(80);
+    // queueArray->enqueue(90);
 
+    queueArray->print();
 
     std::cout << "Queue size is " << queueArray->size() << std::endl;
 }

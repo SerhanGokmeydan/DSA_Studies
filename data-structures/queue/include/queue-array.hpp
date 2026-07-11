@@ -14,7 +14,6 @@ class QueueArray
         int peekFront();
         int peekRear();
         int circArr(int index);
-        void circArr(int index, int val);
         bool isEmpty();
         bool isFull();
         int size();

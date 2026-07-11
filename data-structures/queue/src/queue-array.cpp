@@ -26,12 +26,6 @@ int QueueArray::circArr(int index)
     return index;
 }
 
-void QueueArray::circArr(int index, int val)
-{
-    index = this->circArr(index);
-    this->arr[index] = val;
-}
-
 bool QueueArray::isEmpty()
 {
     if (this->count == 0)
@@ -55,11 +49,11 @@ void QueueArray::enqueue(int data)
     }
     if (this->isEmpty())
     {
-        this->front++;
+        this->front = this->circArr(++this->front);
     }
-    this->rear++;
+    this->rear = this->circArr(++this->rear);
+    this->arr[this->rear] = data;
     this->count++;
-    this->circArr(this->rear, data);
 }
 
 // front değerini azaltarak değil çemberde bir tur attırarak güncellemeye çalış
@@ -71,19 +65,19 @@ void QueueArray::dequeue()
         std::cout << "The queue is already empty" << std::endl;
         return;
     }
-    this->circArr(this->front, 0);
-    this->front--;
+    this->arr[this->front] = 0;
+    this->front = circArr(this->front + (this->cap + 1));
     this->count--;
 }
 
 int QueueArray::peekFront()
 {
-    return circArr(this->front);
+    return this->arr[this->front];
 }
 
 int QueueArray::peekRear()
 {
-    return circArr(this->rear);
+    return this->arr[this->rear];
 }
 
 int QueueArray::size()
@@ -93,12 +87,12 @@ int QueueArray::size()
 
 void QueueArray::print()
 {
-    int currentIndex = this->rear;
-    while (currentIndex != this->front - 1)
+    int currentIndex = this->front;
+    do
     {
         std::cout << this->arr[currentIndex] << " -> ";
-        currentIndex--;
-        // currentIndex = circArr(currentIndex);
-    }
+        currentIndex = circArr(++currentIndex);
+
+    } while (currentIndex != this->circArr(this->rear + 1));
     std::cout << std::endl;
 }
