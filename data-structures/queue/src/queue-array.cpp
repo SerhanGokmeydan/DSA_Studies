@@ -6,7 +6,7 @@ QueueArray::QueueArray(int cap)
     this->count = 0;
     this->cap = cap;
     this->arr = new int[this->cap];
-    this->front = this->rear = -1;
+    this->front = this->rear = 0;
 }
 
 QueueArray::~QueueArray()
@@ -43,14 +43,9 @@ void QueueArray::enqueue(int data)
         std::cout << "The queue is already full" << std::endl;
         return;
     }
-    this->rear = this->circArr(++this->rear);
     this->arr[this->rear] = data;
+    this->rear = this->circArr(this->rear + 1);
     this->count++;
-    // eğer liste ilk eklemede boş ise frontu 0 eşitlemek yerine rear eşitle
-    if (this->count == 1)
-    {
-        this->front = this->rear;
-    }
 }
 
 void QueueArray::dequeue()
@@ -58,23 +53,29 @@ void QueueArray::dequeue()
     if (this->isEmpty())
     {
         std::cout << "The queue is already empty" << std::endl;
-        // eğer dizi boşalırsa front ve rear değerlerini tekrar -1'e eşitle
-        this->front = this->rear = -1;
         return;
     }
-    this->arr[this->front] = 0;
-    this->front = circArr(++this->front);
+    this->front = circArr(this->front + 1);
     this->count--;
 }
 
 int QueueArray::peekFront()
 {
+    if (this->isEmpty())
+    {
+        std::cout << "The queue is empty" << std::endl;
+    }
     return this->arr[this->front];
 }
 
 int QueueArray::peekRear()
 {
-    return this->arr[this->rear];
+    if (this->isEmpty())
+    {
+        std::cout << "The queue is empty" << std::endl;
+    }
+    // rear sıranın sonundaki elemanın sağında kaldığı için bir gerisini işaret etmemiz gerekiyor
+    return this->arr[this->circArr(this->rear + (this->cap - 1))];
 }
 
 int QueueArray::size()
