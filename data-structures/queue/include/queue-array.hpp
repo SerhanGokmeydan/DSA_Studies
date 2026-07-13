@@ -2,23 +2,24 @@
 
 class QueueArray
 {
-    private:
-        int *arr;
-        int cap;
-        int count;
-        int front;
-        int rear;
-    public:
-        void enqueue(int data);
-        void dequeue();
-        int peekFront();
-        int peekRear();
-        int circArr(int index);
-        bool isEmpty();
-        bool isFull();
-        int size();
-        void print();
+private:
+    int *arr;
+    int cap;
+    int count;
+    int front;
+    int rear;
 
-        QueueArray(int cap);
-        ~QueueArray();
+public:
+    void enqueue(int data);
+    void dequeue();
+    int peekFront();
+    int peekRear();
+    int circArr(int index);
+    bool isEmpty();
+    bool isFull();
+    int size();
+    void print();
+
+    QueueArray(int cap);
+    ~QueueArray();
 };

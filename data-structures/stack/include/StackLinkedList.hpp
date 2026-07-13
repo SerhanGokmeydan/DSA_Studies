@@ -10,9 +10,9 @@ private:
         Node(int data);
     };
     Node *top;
+    int count;
 
 public:
-    int count;
     void push(int data);
     void pop();
     int peek();

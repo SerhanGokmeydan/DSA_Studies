@@ -3,15 +3,15 @@
 
 QueueArray::QueueArray(int cap)
 {
-    this->count = 0;
+    count = 0;
     this->cap = cap;
-    this->arr = new int[this->cap];
-    this->front = this->rear = 0;
+    arr = new int[this->cap];
+    front = rear = 0;
 }
 
 QueueArray::~QueueArray()
 {
-    delete[] this->arr;
+    delete[] arr;
 }
 
 int QueueArray::circArr(int index)
@@ -22,79 +22,79 @@ int QueueArray::circArr(int index)
         return -1;
     }
 
-    index %= this->cap;
+    index %= cap;
     return index;
 }
 
 bool QueueArray::isEmpty()
 {
-    return this->count == 0;
+    return count == 0;
 }
 
 bool QueueArray::isFull()
 {
-    return this->count == this->cap;
+    return count == cap;
 }
 
 void QueueArray::enqueue(int data)
 {
-    if (this->isFull())
+    if (isFull())
     {
         std::cout << "The queue is already full" << std::endl;
         return;
     }
-    this->arr[this->rear] = data;
-    this->rear = this->circArr(this->rear + 1);
-    this->count++;
+    arr[rear] = data;
+    rear = circArr(rear + 1);
+    count++;
 }
 
 void QueueArray::dequeue()
 {
-    if (this->isEmpty())
+    if (isEmpty())
     {
         std::cout << "The queue is already empty" << std::endl;
         return;
     }
-    this->front = circArr(this->front + 1);
-    this->count--;
+    front = circArr(front + 1);
+    count--;
 }
 
 int QueueArray::peekFront()
 {
-    if (this->isEmpty())
+    if (isEmpty())
     {
         std::cout << "The queue is empty" << std::endl;
     }
-    return this->arr[this->front];
+    return arr[front];
 }
 
 int QueueArray::peekRear()
 {
-    if (this->isEmpty())
+    if (isEmpty())
     {
         std::cout << "The queue is empty" << std::endl;
     }
     // rear sıranın sonundaki elemanın sağında kaldığı için bir gerisini işaret etmemiz gerekiyor
-    return this->arr[this->circArr(this->rear + (this->cap - 1))];
+    return arr[circArr(rear + (cap - 1))];
 }
 
 int QueueArray::size()
 {
-    return this->count;
+    return count;
 }
 
 void QueueArray::print()
 {
-    if (this->isEmpty())
+    if (isEmpty())
     {
         std::cout << "The queue is empty" << std::endl;
         return;
     }
     // sadece sıradaki eleman sayısı kadarını ekrana yazdır
-    for (int i = 0; i < this->count; i++)
+    for (int i = 0; i < count; i++)
     {
-        int index = circArr(this->front + i);
-        std::cout << this->arr[index] << " <- ";
+        int index = circArr(front + i);
+        std::cout << arr[index] << " <- ";
     }
     std::cout << std::endl;
 }
