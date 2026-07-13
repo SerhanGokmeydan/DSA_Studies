@@ -50,7 +50,7 @@ void QueueList::dequeue()
 {
     if (isEmpty())
     {
-        std::cout << "The queueu is already empty" << std::endl;
+        std::cout << "The queue is already empty" << std::endl;
         return;
     }
     Node *temp = front;
