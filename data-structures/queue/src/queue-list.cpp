@@ -4,7 +4,7 @@
 QueueList::Node::Node(int data)
 {
     this->data = data;
-    next = prev = nullptr;
+    next = nullptr;
 }
 
 QueueList::QueueList()
@@ -39,8 +39,7 @@ void QueueList::enqueue(int data)
     }
     else
     {
-        newNode->next = rear;
-        rear->prev = newNode;
+        rear->next = newNode;
         rear = newNode;
     }
     count++;
@@ -54,14 +53,10 @@ void QueueList::dequeue()
         return;
     }
     Node *temp = front;
-    front = front->prev;
+    front = front->next;
     if (front == nullptr)
     {
         rear = nullptr;
-    }
-    else
-    {
-        front->next = nullptr;
     }
     delete temp;
     count--;
@@ -94,7 +89,8 @@ int QueueList::size()
 
 void QueueList::print()
 {
-    if(isEmpty()){
+    if (isEmpty())
+    {
         std::cout << "The queue is empty" << std::endl;
         return;
     }
@@ -102,7 +98,7 @@ void QueueList::print()
     while (current != nullptr)
     {
         std::cout << current->data << " <- ";
-        current = current->prev;
+        current = current->next;
     }
     std::cout << std::endl;
 }
