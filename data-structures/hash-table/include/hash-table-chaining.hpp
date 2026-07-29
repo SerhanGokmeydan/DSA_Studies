@@ -33,7 +33,7 @@ private:
         }
         // to reduce table size, take the quarted of LF as a measure due to thrashing problem
         // if we take same LF to update table size, there will be so much O(N) processes in consecutive insert and remove
-        else if (count / table.size() <= loadFactor / 4.0f && table.size() / 2 >= cap)
+        else if (currentLF <= loadFactor / 4.0f && table.size() / 2 >= cap)
         {
             newSize = table.size() / 2;
         }
@@ -120,7 +120,6 @@ public:
                 if (current->key == key)
                 {
                     current->val = val;
-                    rehash(++count);
                     return;
                 }
                 current = current->next;
@@ -128,6 +127,7 @@ public:
             Node *node = new Node(key, val);
             node->next = table.at(index);
             table.at(index) = node;
+            rehash(++count);
         }
         catch (const std::exception &e)
         {
@@ -161,7 +161,6 @@ public:
                 prev = current;
                 current = current->next;
             }
-            rehash(--count);
         }
         catch (const std::exception &e)
         {
@@ -203,7 +202,7 @@ public:
             Node *current = node;
             while (current != nullptr)
             {
-                std::cout << " --> " << current->key << " : " << current->val;
+                std::cout << current->key << " : " << current->val << " --> ";
                 current = current->next;
             }
             std::cout << std::endl;
