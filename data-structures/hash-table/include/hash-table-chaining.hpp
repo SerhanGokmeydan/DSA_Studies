@@ -197,15 +197,18 @@ public:
 
     void print()
     {
-        for (Node *node : table)
+        std::cout << "------------------------" << std::endl;
+        for (size_t i = 0; i < table.size(); i++)
         {
-            Node *current = node;
+            std::cout << "[" << i << "]";
+            Node *current = table.at(i);
             while (current != nullptr)
             {
-                std::cout << current->key << " : " << current->val << " --> ";
+                std::cout << " -> (" << current->key << " : " << current->val << ")";
                 current = current->next;
             }
             std::cout << std::endl;
         }
+        std::cout << "------------------------" << std::endl;
     }
 };
