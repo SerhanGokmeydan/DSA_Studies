@@ -67,7 +67,7 @@ private:
             {
                 if (key < 0)
                 {
-                    throw std::invalid_argument("Key value must be positive whole number");
+                    throw std::invalid_argument("Key value must be positive integer.");
                 }
             }
             return (size_t)key % size;
@@ -83,7 +83,7 @@ private:
         }
         else
         {
-            throw std::invalid_argument("The key value must be a number or a string.");
+            throw std::invalid_argument("The key value must be an integer or a string.");
         }
     }
 
@@ -131,7 +131,7 @@ public:
         }
         catch (const std::exception &e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
     }
 
@@ -164,7 +164,7 @@ public:
         }
         catch (const std::exception &e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
     }
 
@@ -191,7 +191,7 @@ public:
         }
         catch (const std::exception &e)
         {
-            std::cerr << e.what() << '\n';
+            std::cerr << e.what() << std::endl;
         }
     }
 
