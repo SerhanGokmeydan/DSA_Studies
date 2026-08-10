@@ -50,6 +50,18 @@ int main()
     hashTableAddressing.insert(17, "salih");
     hashTableAddressing.insert(16, "soner");
     hashTableAddressing.insert(5, "simit");
+    hashTableAddressing.insert(31, "sidika");
+
+    hashTableAddressing.print();
+
+    hashTableAddressing.remove(1);
+    hashTableAddressing.remove(11);
+    hashTableAddressing.remove(17);
+
+    hashTableAddressing.print();
+
+    hashTableAddressing.search(31);
+    hashTableAddressing.insert(51, "serhan");
 
     hashTableAddressing.print();
 
