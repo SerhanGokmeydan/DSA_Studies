@@ -121,13 +121,13 @@ public:
             size_t INVALID_INDEX = table.size();
             size_t index = hash(key);
             size_t initialIndex = index;
-            size_t firstEmptyIndex = INVALID_INDEX;
+            size_t firstDeletedIndex = INVALID_INDEX;
             Node *current = table.at(index);
             while (current != nullptr)
             {
-                if (current->state == Node::State::DELETED && firstEmptyIndex == INVALID_INDEX)
+                if (current->state == Node::State::DELETED && firstDeletedIndex == INVALID_INDEX)
                 {
-                    firstEmptyIndex = index;
+                    firstDeletedIndex = index;
                 }
                 if (current->key == key)
                 {
@@ -147,15 +147,15 @@ public:
                     break;
                 }
             }
-            if (firstEmptyIndex == INVALID_INDEX)
+            if (firstDeletedIndex == INVALID_INDEX)
             {
                 table.at(index) = new Node(key, val);
             }
             else
             {
                 // delete previous tombstone node
-                delete table.at(firstEmptyIndex);
-                table.at(firstEmptyIndex) = new Node(key, val);
+                delete table.at(firstDeletedIndex);
+                table.at(firstDeletedIndex) = new Node(key, val);
             }
             rehash(++count);
         }
