@@ -61,9 +61,10 @@ int main()
     hashTableAddressing.print();
 
     hashTableAddressing.search(31);
-    hashTableAddressing.insert(51, "serhan");
+    hashTableAddressing.search(111);
+    hashTableAddressing.insert(31, "serhan");
 
     hashTableAddressing.print();
-
+    
     return 0;
 }

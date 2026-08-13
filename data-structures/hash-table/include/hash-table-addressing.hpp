@@ -142,7 +142,7 @@ public:
                 }
                 index = (index + 1) % table.size();
                 current = table.at(index);
-                //table may filled up with tombstone, so it can be enter infinite loop
+                // table may filled up with tombstone, so it can be enter infinite loop
                 if (initialIndex == index)
                 {
                     break;
@@ -181,17 +181,14 @@ public:
                     rehash(--count);
                     return;
                 }
-                else
-                {
-                    index = (index + 1) % table.size();
-                    current = table.at(index);
-                }
+                index = (index + 1) % table.size();
+                current = table.at(index);
                 if (initialIndex == index)
                 {
-                    std::cout << "Data is not found" << std::endl;
-                    return;
+                    break;
                 }
             }
+            std::cout << "Key is not found" << std::endl;
         }
         catch (const std::exception &e)
         {
@@ -214,19 +211,14 @@ public:
                     std::cout << current->key << " : " << current->val << std::endl;
                     return;
                 }
-                else
-                {
-                    index = (index + 1) % table.size();
-                    current = table.at(index);
-                }
+                index = (index + 1) % table.size();
+                current = table.at(index);
                 if (index == initialIndex)
                 {
-                    std::cout << "Data is not found" << std::endl;
-                    return;
+                    break;
                 }
             }
-            std::cout << "Data is not found" << std::endl;
-            return;
+            std::cout << "Key is not found" << std::endl;
         }
         catch (const std::exception &e)
         {

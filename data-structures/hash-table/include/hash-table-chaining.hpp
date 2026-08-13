@@ -161,11 +161,7 @@ public:
                 prev = current;
                 current = current->next;
             }
-            if (current == nullptr)
-            {
-                std::cout << "Data is not found" << std::endl;
-                return;
-            }
+            std::cout << "Key is not found" << std::endl;
         }
         catch (const std::exception &e)
         {
@@ -188,11 +184,7 @@ public:
                 }
                 current = current->next;
             }
-            if (current == nullptr)
-            {
-                std::cout << "Data is not found" << std::endl;
-                return;
-            }
+            std::cout << "Key is not found" << std::endl;
         }
         catch (const std::exception &e)
         {
