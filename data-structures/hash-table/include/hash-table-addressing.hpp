@@ -125,6 +125,7 @@ public:
             Node *current = table.at(index);
             while (current != nullptr)
             {
+                // save first deleted tombstone
                 if (current->state == Node::State::DELETED && firstDeletedIndex == INVALID_INDEX)
                 {
                     firstDeletedIndex = index;

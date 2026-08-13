@@ -161,6 +161,11 @@ public:
                 prev = current;
                 current = current->next;
             }
+            if (current == nullptr)
+            {
+                std::cout << "Data is not found" << std::endl;
+                return;
+            }
         }
         catch (const std::exception &e)
         {
